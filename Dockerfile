@@ -23,7 +23,7 @@ LABEL org.opencontainers.image.description="Pinned Tailscale DERP relay image"
 LABEL org.opencontainers.image.version="${DERPER_VERSION}"
 
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=build /out/derper /usr/local/bin/derper
+COPY --from=build /go/bin/derper /usr/local/bin/derper
 
 EXPOSE 8080/tcp
 EXPOSE 8443/tcp
