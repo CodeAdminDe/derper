@@ -1,5 +1,5 @@
 # renovate: datasource=github-tags depName=tailscale/tailscale versioning=loose
-ARG DERPER_VERSION=v1.94.2
+ARG DERPER_VERSION=v1.97.0-pre
 
 FROM golang:1.26-alpine AS build
 
