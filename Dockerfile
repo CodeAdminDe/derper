@@ -3,8 +3,8 @@ FROM golang:1.26-alpine AS build
 LABEL org.opencontainers.image.source="https://github.com/codeadminde/derper"
 LABEL org.opencontainers.image.description="Pinned Tailscale DERP relay image"
 
-# renovate: datasource=github-tags depName=tailscale/tailscale versioning=loose
-ARG DERPER_VERSION=v1.97.0-pre
+# renovate: datasource=github-tags depName=tailscale/tailscale versioning=semver extractVersion=^v(?<version>.*)$
+ARG DERPER_VERSION=v1.92.2
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
 
@@ -15,8 +15,8 @@ RUN CGO_ENABLED=0 GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" \
 
 FROM gcr.io/distroless/static:nonroot
 
-# renovate: datasource=github-tags depName=tailscale/tailscale versioning=loose
-ARG DERPER_VERSION=v1.97.0-pre
+# renovate: datasource=github-tags depName=tailscale/tailscale versioning=semver extractVersion=^v(?<version>.*)$
+ARG DERPER_VERSION=v1.92.2
 
 LABEL org.opencontainers.image.source="https://github.com/codeadminde/derper"
 LABEL org.opencontainers.image.description="Pinned Tailscale DERP relay image"
