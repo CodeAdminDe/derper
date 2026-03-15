@@ -10,7 +10,7 @@ ARG TARGETARCH=amd64
 
 RUN apk add --no-cache ca-certificates git
 
-RUN CGO_ENABLED=0 GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" GOBIN=/out \
+RUN CGO_ENABLED=0 GOOS="${TARGETOS}" GOARCH="${TARGETARCH}" \
     go install tailscale.com/cmd/derper@"${DERPER_VERSION}"
 
 FROM gcr.io/distroless/static:nonroot
